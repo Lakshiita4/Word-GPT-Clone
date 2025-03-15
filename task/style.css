@@ -1,0 +1,985 @@
+<!--step 1-->
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #2c003e, #000);
+            color: white;
+            text-align: center;
+            
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: rgba(0, 0, 0, 0.8);
+    
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links li {
+            position: relative;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .signup {
+            background: blue;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+        .hero {
+            margin-top: 50px;
+            padding: 50px;
+        }
+        .highlight {
+            color: #7d5fff;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .start-btn, .demo-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        .start-btn {
+            background: white;
+            color: black;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+        .demo-btn {
+            background: black;
+            color: white;
+            border-radius: 5px;
+            border: 1px solid white;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+        }
+        .dropdown-content a {
+            color: white;
+            padding: 10px;
+            display: block;
+            text-decoration: none;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+
+    <style>
+     body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        background-color: #f9f5f8;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+     }
+
+     .workflow-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+        position: relative;
+     }
+
+     .workflow-card {
+        width: 220px;
+        height: 140px;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        margin: 0 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        position: relative;
+        z-index: 2;
+     }
+
+     .workflow-card-icon {
+        font-size: 24px;
+        margin-bottom: 10px;
+     }
+
+     .workflow-card-title {
+        font-weight: 600;
+        margin-bottom: 8px;
+        font-size: 16px;
+     }
+
+     .workflow-card-description {
+        font-size: 14px;
+        color: #666;
+        margin: 0;
+     }
+
+     .document-card {
+        background-color: #e8f4fc;
+        border: 2px solid #68b5e8;
+        color: #0c73b8;
+        margin-top: 50px;
+     }
+
+     .document-card .workflow-card-icon {
+        color: #0c73b8;
+     }
+
+     .generate-card {
+        background-color: #fff9d9;
+        border: 2px solid #ffd966;
+        color: #b35c00;
+        margin-top: 100px;
+     }
+
+     .generate-card .workflow-card-icon {
+        color: #b35c00;
+     }
+
+     .edit-card {
+        background-color: #f9e5ff;
+        border: 2px solid #d6a4e8;
+        color: #8e44ad;
+        margin-top: 150px;
+     }
+
+     .edit-card .workflow-card-icon {
+        color: #8e44ad;
+     }
+
+     .approval-card {
+        background-color: #e6f7ee;
+        border: 2px solid #a3e2c4;
+        color: #27ae60;
+        margin-top: 200px;
+        
+     }
+
+     .approval-card .workflow-card-icon {
+        color: #27ae60;
+        
+     }
+
+     .connector {
+        position: absolute;
+        border-top: 2px dashed #ccc;
+        width: 100px;
+        z-index: 1;
+     }
+ 
+     .connector-1 {
+        left: 240px;
+        width: 80px;
+     }
+
+     .connector-2 {
+        left: 480px;
+        width: 80px;
+     }
+
+     .connector-3 {
+        left: 720px;
+        width: 80px;
+     }
+  </style>
+
+  
+  <style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d0f21;
+    color: white;
+}
+
+/* Section Styling */
+.ai-blog-section {
+    background: linear-gradient(90deg, #4b1ea3, #0c2a63);
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+p {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #d1d5db;
+}
+
+/* Feature Cards */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background: #161b25;
+    padding: 20px;
+    border-radius: 8px;
+    width: 250px;
+    text-align: left;
+}
+
+.feature-card h3 {
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+        }
+
+        .how-it-works {
+            width: 100%;
+            background-color: #161c2c;
+            padding: 30px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .how-it-works h2 {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 600;
+            text-align: center;
+        }
+</style>
+
+<style>
+     body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        background-color: #f9f5f8;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+     }
+
+     .workflow-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+        position: relative;
+     }
+
+     .workflow-card {
+        width: 220px;
+        height: 140px;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        margin: 0 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        position: relative;
+        z-index: 2;
+     }
+
+     .workflow-card-icon {
+        font-size: 24px;
+        margin-bottom: 10px;
+     }
+
+     .workflow-card-title {
+        font-weight: 600;
+        margin-bottom: 8px;
+        font-size: 16px;
+     }
+
+     .workflow-card-description {
+        font-size: 14px;
+        color: #666;
+        margin: 0;
+     }
+
+     .document-card {
+        background-color: #e8f4fc;
+        border: 2px solid #68b5e8;
+        color: #0c73b8;
+     }
+
+     .document-card .workflow-card-icon {
+        color: #0c73b8;
+     }
+
+     .generate-card {
+        background-color: #fff9d9;
+        border: 2px solid #ffd966;
+        color: #b35c00;
+     }
+
+     .generate-card .workflow-card-icon {
+        color: #b35c00;
+     }
+
+     .edit-card {
+        background-color: #f9e5ff;
+        border: 2px solid #d6a4e8;
+        color: #8e44ad;
+     }
+
+     .edit-card .workflow-card-icon {
+        color: #8e44ad;
+     }
+
+     .approval-card {
+        background-color: #e6f7ee;
+        border: 2px solid #a3e2c4;
+        color: #27ae60;
+     }
+
+     .approval-card .workflow-card-icon {
+        color: #27ae60;
+     }
+
+     .connector {
+        position: absolute;
+        border-top: 2px dashed #ccc;
+        width: 100px;
+        z-index: 1;
+     }
+ 
+     .connector-1 {
+        left: 240px;
+        width: 80px;
+     }
+
+     .connector-2 {
+        left: 480px;
+        width: 80px;
+     }
+
+     .connector-3 {
+        left: 720px;
+        width: 80px;
+     }
+</style>
+
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #111827;
+            color: white;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 10px;
+        }
+        
+        .features-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .features-content {
+            flex: 1;
+            max-width: 600px;
+        }
+        
+        .headline {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .headline h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .headline h1 .blue {
+            color: #4f6bfd;
+        }
+        
+        .headline h1 .purple {
+            color: #d252e1;
+        }
+        
+        .description {
+            color: #d9d9d9;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .feature-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon.sparkle {
+            color: #4f6bfd;
+        }
+        
+        .feature-icon.wordpress {
+            color: #0073aa;
+        }
+        
+        .feature-icon.document {
+            color: #4f6bfd;
+        }
+        
+        .feature-icon.export {
+            color: #4169e1;
+        }
+        
+        .feature-icon.cloud {
+            color: #4f6bfd;
+        }
+        
+        .feature-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .feature-content p {
+            color: #a0aec0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .features-image {
+            flex: 1;
+            max-width: 600px;
+        }
+        
+        .features-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #4f6bfd;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            max-width: 250px;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #3b57d9;
+        }
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4f6bfd;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(79, 107, 253, 0.3);
+        }
+        
+        @media (max-width: 900px) {
+            .features-section {
+                flex-direction: column;
+            }
+            
+            .features-content, .features-image {
+                max-width: 100%;
+            }
+        }
+    </style>
+
+    
+
+<style>
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d0f21;
+    color: white;
+}
+
+/* Section Styling */
+.features-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: #0d0f21;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.intro-text {
+    font-size: 16px;
+    color: #d1d5db;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.feature {
+    background: #161b25;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.icon {
+    font-size: 30px;
+    color: #4b6ef5;
+    margin-bottom: 10px;
+}
+
+.feature h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #0d1121; /* Dark background */
+        color: white;
+        text-align: center;
+    }
+    
+    /* Pricing Section */
+    .pricing-section h1 {
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+    
+    .pricing-section p {
+        font-size: 16px;
+        margin-bottom: 30px;
+        color: #ccc;
+    }
+    
+    /* Pricing Container */
+    .pricing-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    /* Pricing Card */
+    .pricing-card {
+        background-color: #161b30; /* Slightly lighter dark */
+        padding: 25px;
+        width: 300px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+    }
+    
+    .pricing-card h2 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+    .plan-type {
+        font-size: 18px;
+        color: #aaa;
+        margin-bottom: 10px;
+    }
+    
+    .plan-description {
+        font-size: 14px;
+        color: #ccc;
+    }
+    
+    /* Buttons */
+    .btn {
+        background-color: #3c60f7;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .btn:hover {
+        background-color: #2a49d3;
+    }
+    
+    /* Feature List */
+    ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 15px;
+        text-align: left;
+    }
+    
+    ul li {
+        font-size: 14px;
+        padding: 5px 0;
+    }
+    </style>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0d1121; /* Dark background */
+    color: white;
+    text-align: center;
+}
+
+/* Section Styling */
+.testimonial-section {
+    padding: 50px 20px;
+}
+
+.testimonial-section h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.testimonial-section p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #ccc;
+}
+
+/* Testimonial Container */
+.testimonial-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+    background-color: #161b30; /* Darker background for cards */
+    padding: 25px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+    text-align: left;
+}
+
+.stars {
+    font-size: 20px;
+    color: #f5c518; /* Yellow stars */
+    margin-bottom: 10px;
+}
+
+.testimonial-text {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+/* User Info */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.user-info h3 {
+    font-size: 16px;
+    margin: 0;
+    color: #fff;
+}
+
+.user-info p {
+    font-size: 14px;
+    color: #aaa;
+    margin: 0;
+}
+</style>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0d1121; /* Dark background */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contact Form Container */
+.contact-form {
+    background-color: #161b30; /* Darker background for the form */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+    width: 500px;
+    text-align: left;
+}
+
+.contact-form h1 {
+    font-size: 24px;
+    font-weight: bold;
+   
+}
+
+.contact-form p {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 20px;
+    
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #ccc;
+}
+
+input, textarea {
+    background-color: #1e243d;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #888;
+}
+
+/* Message Box */
+textarea {
+    height: 100px;
+    width: 500px;
+    resize: vertical;
+}
+
+/* reCAPTCHA */
+.g-recaptcha {
+    margin-top: 10px;
+}
+
+/* Submit Button */
+.send-btn {
+    width: 100%;
+    background-color: #3b5bdb; /* Blue button */
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.send-btn:hover {
+    background-color: #2e4cad;
+}
+
+</style>
+
+<style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0C0F27;
+            color: white;
+        }
+        .footer {
+            background-color: #0C0F27;
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        .footer-column {
+            margin-bottom: 20px;
+        }
+        .footer-column h3 {
+            margin-bottom: 10px;
+        }
+        .footer-column a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 5px;
+        }
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+        .social-icons img {
+            width: 20px;
+            height: 20px;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding: 10px;
+            background-color: #0A0D23;
+        }
+        .badge {
+            background-color: white;
+            color: black;
+            padding: 3px 8px;
+            font-size: 12px;
+            border-radius: 12px;
+            margin-left: 5px;
+        }
+    </style>
